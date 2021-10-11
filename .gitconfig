@@ -1,0 +1,23 @@
+[core]
+  	excludesFile = ~/.gitignore
+[user]
+	name = Anastasiya Shaternik
+	email = 11872253+schaternik@users.noreply.github.com
+[pull]
+	rebase = true
+[alias]
+	authors = !git log --format='%aN <%aE>' | grep -v 'users.noreply.github.com' | sort -u --ignore-case
+    	br = branch
+     	co = checkout
+    	cm = commit
+	h = log --oneline --graph --decorate
+	rmb = branch | grep -v "master" | xargs git branch -D 
+[fetch]
+  	prune = true
+[color]
+        	ui = auto
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

@@ -1,23 +1,44 @@
 [core]
-  	excludesFile = ~/.gitignore
+	excludesfile = ~/.gitignore
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [user]
-	name = Anastasiya Shaternik
+	name = Anastasia Shaternik
 	email = 11872253+schaternik@users.noreply.github.com
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
+	colorMoved = plain
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 [pull]
 	rebase = true
 [alias]
 	authors = !git log --format='%aN <%aE>' | grep -v 'users.noreply.github.com' | sort -u --ignore-case
-    	br = branch
-     	co = checkout
-    	cm = commit
+	br = branch
+	co = checkout
+	cm = commit
 	h = log --oneline --graph --decorate
-	rmb = branch | grep -v "master" | xargs git branch -D 
-[fetch]
-  	prune = true
-[color]
-        	ui = auto
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+	rmb = branch | grep -v "master" | xargs git branch -D

@@ -34,9 +34,9 @@ fi
 
 # --- Check Kubernetes tools ---
 for cmd in kubectl kubectx kubens kubecolor; do
-    if ! (( $+commands[$cmd] )); then
-        echo "⚠️ $cmd is not installed"
-    fi
+  if ! (( $+commands[$cmd] )); then
+      echo "⚠️ $cmd is not installed"
+  fi
 done
 
 # ENV vars
